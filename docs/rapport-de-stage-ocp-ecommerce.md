@@ -1,4 +1,53 @@
 # Rapport de stage – Plateforme e-commerce OCP
+# Rapport de stage – Plateforme e-commerce OCP
+---
+title: "Rapport de stage – Plateforme e-commerce OCP"
+author: "Nom Prénom (Stagiaire)"
+date: "Année 2025"
+institute: "Établissement / Département"
+company: "Entreprise / Service"
+supervisor: "Encadrant(e) de stage"
+period: "Période du stage (JJ/MM – JJ/MM)"
+location: "Ville, Pays"
+toc: true
+toc-depth: 3
+---
+
+\newpage
+
+## Remerciements
+Je remercie [Encadrant(e)], l’équipe [Service] et mon établissement pour leur accompagnement durant ce stage.
+
+## Présentation de l’entreprise / contexte d’accueil
+Brève présentation de l’organisation, du secteur d’activité et du service d’accueil.
+
+## Objectifs du stage
+- Objectif 1: …
+- Objectif 2: …
+- Objectif 3: …
+
+## Missions réalisées
+- Mise en place et validation de l’API backend (Express/SQLite)
+- Documentation technique des endpoints et de la BDD
+- Recommandations d’industrialisation et de sécurité
+
+## Méthodologie et organisation
+- Outils: Git, Node.js, SQLite, cURL
+- Méthode: itérations courtes, vérifications par requêtes HTTP et logs
+- Suivi: tâches planifiées, contrôles réguliers
+
+## Compétences développées
+- Développement d’API REST (Express)
+- Sécurité applicative de base (JWT, middleware)
+- Conception de schéma et requêtes SQL (SQLite)
+- Rédaction de documentation technique
+
+## Difficultés rencontrées et solutions
+- Encodage JSON strict côté requêtes HTTP → validation d’exemples cURL
+- Cohérence schéma/implémentation → revue des requêtes SQL et endpoints
+
+## Conclusion et perspectives
+Le stage a permis de livrer une API fonctionnelle et documentée, base solide pour un futur frontend. Les prochaines étapes incluent l’ajout de tests, l’outillage Dev, et l’implémentation d’une interface web.
 
 ## 1. Contexte du projet
 Ce projet est une API e-commerce pédagogique développée en Node.js/Express avec une base de données SQLite. Il expose des endpoints permettant la gestion des utilisateurs, des produits, des commandes et un accès de visualisation côté administrateur. Le frontend n’est pas encore implémenté dans ce dépôt.
