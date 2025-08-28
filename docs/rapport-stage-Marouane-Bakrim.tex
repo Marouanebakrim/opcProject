@@ -1,0 +1,367 @@
+% !TeX program = xelatex
+% Rapport de stage OCP - Projet eCommerce Node/Express
+\documentclass[12pt,a4paper]{report}
+
+% Packages de base
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{csquotes}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.multipart}
+
+% Mise en page
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\setstretch{1.2}
+
+% Emplacement des images (déposez vos captures dans le dossier screens/)
+\graphicspath{{./screens/}{./logos/}{.}}
+
+% Hyperref
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=teal,
+  urlcolor=magenta,
+  pdfauthor={Marouane Bakrim},
+  pdftitle={Rapport de stage - OCP - API eCommerce Node/Express}
+}
+
+% Configuration listings (code)
+\lstdefinestyle{code}{
+  basicstyle=\ttfamily\small,
+  numbers=left,
+  numberstyle=\tiny, numbersep=5pt,
+  frame=single,
+  breaklines=true,
+  tabsize=2,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{teal}
+}
+
+% Informations de page de garde (personnalisées)
+\newcommand{\etudiant}{Marouane Bakrim}
+\newcommand{\filiere}{Master en Génie Informatique}
+\newcommand{\annee}{2024}
+\newcommand{\entreprise}{OCP}
+\newcommand{\sujet}{Conception et réalisation d'une API eCommerce Node.js/Express}
+\newcommand{\encadrantE}{Nom Encadrant Entreprise}
+\newcommand{\encadrantA}{Nom Encadrant Académique}
+\newcommand{\duree}{Février -- Août 2024}
+
+\begin{document}
+
+% Page de garde
+\begin{titlepage}
+\begin{center}
+\vspace*{0.5cm}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.25\textwidth]{logo-ocp.png}\hspace{2cm}
+\includegraphics[width=0.25\textwidth]{logo-ensa.png}
+\end{figure}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\rule{0.8\textwidth}{2pt}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+{\Huge \textbf{\textcolor{blue!70!black}{Rapport de Stage}}\par}
+\vspace{0.3cm}
+{\Large \textbf{\textcolor{blue!60!black}{\entreprise}}\par}
+\vspace{0.3cm}
+{\LARGE \textbf{\textcolor{blue!80!black}{\sujet}}\par}
+\end{center}
+
+\vspace{1.5cm}
+
+\begin{center}
+\begin{minipage}{0.85\textwidth}
+\begin{center}
+\fboxsep=10pt\fboxrule=2pt
+\fcolorbox{blue!30}{blue!5}{
+\begin{minipage}{0.9\textwidth}
+\centering
+\vspace{0.3cm}
+{\Large \textbf{\filiere}\\}
+\vspace{0.2cm}
+{\Large \textbf{École Nationale des Sciences Appliquées de Safi}\\}
+\vspace{0.3cm}
+\end{minipage}}
+\end{center}
+\end{minipage}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{minipage}{0.8\textwidth}
+\begin{center}
+\begin{tabular}{ll}
+\textbf{\large Stagiaire :} & \large \textbf{\etudiant} \\
+\textbf{\large Filière :} & \large \filiere \\
+\textbf{\large Année :} & \large \annee \\
+\textbf{\large Période :} & \large \duree \\
+\textbf{\large Encadrant entreprise :} & \large \textbf{\encadrantE} \\
+\textbf{\large Encadrant académique :} & \large \textbf{\encadrantA} \\
+\end{tabular}
+\end{center}
+\end{minipage}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{minipage}{0.7\textwidth}
+\centering
+\fboxsep=8pt\fboxrule=1pt
+\fcolorbox{gray!20}{gray!5}{
+\begin{minipage}{0.9\textwidth}
+\centering
+\vspace{0.2cm}
+{\large \textbf{Année universitaire 2024-2025}\\}
+{\large \textbf{Durée : 6 mois}\\}
+\vspace{0.2cm}
+\end{minipage}}
+\end{minipage}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{minipage}{0.8\textwidth}
+\centering
+\rule{0.6\textwidth}{1pt}
+\vspace{0.3cm}
+{\large \textbf{\textcolor{blue!70!black}{Office Chérifien des Phosphates (OCP)}}\par}
+{\large \textbf{Complexe Chimique de Safi}\par}
+{\large \textbf{Maroc}\par}
+\vspace{0.3cm}
+\rule{0.6\textwidth}{1pt}
+\end{minipage}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+{\large \textbf{\today}}
+\end{center}
+
+\end{titlepage}
+
+% Remerciements
+\chapter*{Remerciements}
+\addcontentsline{toc}{chapter}{Remerciements}
+Je remercie l'ensemble des équipes de \entreprise{} pour leur accueil et leur disponibilité. Mes remerciements particuliers vont à \encadrantE{} pour l'accompagnement opérationnel ainsi qu'à \encadrantA{} pour le suivi académique et méthodologique.
+
+% Résumé
+\chapter*{Résumé}
+\addcontentsline{toc}{chapter}{Résumé}
+Ce rapport présente la conception et la mise en place d'une \textit{API eCommerce} réalisée chez \entreprise{} en Node.js/Express et SQLite. L'objectif a été de fournir une base back-end fiable pour la consultation du catalogue produits, la gestion des utilisateurs et des commandes, en intégrant l'authentification JWT et des bonnes pratiques de sécurisation. Le document décrit l'architecture retenue, les choix techniques, le modèle de données, les principaux endpoints, ainsi que les axes d'amélioration et d'industrialisation.
+
+\textbf{Mots-clés} : eCommerce, Node.js, Express, SQLite, JWT, API REST
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Introduction
+\chapter{Introduction}
+\section{Contexte et objectifs}
+Le stage s'est déroulé au sein de \entreprise{} avec pour objectif de concevoir une API eCommerce modulaire et extensible. Le projet s'appuie sur le framework Express (v5), une base SQLite embarquée et des middlewares de sécurité, afin d'offrir une fondation robuste en vue d'un futur frontend.
+
+\section{Cahier des charges}
+\begin{itemize}
+  \item \textbf{Fonctionnel} : catalogue produits, gestion des comptes, création de commandes, vues d'administration.
+  \item \textbf{Non-fonctionnel} : temps de réponse maîtrisés, API documentée, logs et traçabilité, facilité de déploiement.
+  \item \textbf{Contraintes} : stack JavaScript (Node/Express), base légère (SQLite), usage de JWT pour l'authentification.
+\end{itemize}
+
+\section{Méthodologie}
+Approche itérative : cadrage, conception, implémentation incrémentale, vérifications par requêtes HTTP et revues techniques.
+
+% Présentation de l'entreprise et de l'environnement
+\chapter{Présentation de l'entreprise et de l'environnement}
+\section{Office Chérifien des Phosphates (OCP)}
+L'OCP est un acteur industriel de premier plan, au cœur de la chaîne de valeur du phosphate et des engrais phosphatés. Le Complexe Chimique de Safi joue un rôle clé dans la transformation et l'export.
+
+\section{Environnement technique et outils}
+\begin{itemize}
+  \item \textbf{Langage/Runtime} : Node.js LTS
+  \item \textbf{Framework} : Express 5, CORS, \texttt{express.json}
+  \item \textbf{Sécurité} : JWT (\texttt{jsonwebtoken}), hash des mots de passe (\texttt{bcryptjs})
+  \item \textbf{Base de données} : SQLite (fichier \texttt{ocp\_ecommerce.db})
+  \item \textbf{Outils} : Git, cURL pour tests, nodemon en dev
+\end{itemize}
+
+% Analyse des besoins
+\chapter{Analyse des besoins}
+\section{Acteurs et cas d'utilisation}
+\begin{itemize}
+  \item \textbf{Client} : consulte le catalogue et passe commande.
+  \item \textbf{Administrateur} : gère les produits et suit les commandes.
+\end{itemize}
+Cas d'utilisation : consultation avec filtres, détail produit, inscription/connexion, création de commande, vues d'administration.
+
+\section{Exigences principales}
+\begin{itemize}
+  \item \textbf{Catalogue} : listing filtrable par catégorie et prix.
+  \item \textbf{Comptes} : inscription, connexion, jetons JWT.
+  \item \textbf{Commandes} : création et suivi par utilisateur.
+  \item \textbf{Administration} : visibilité sur commandes et items.
+\end{itemize}
+
+% Architecture
+\chapter{Architecture logicielle}
+\section{Vue d'ensemble}
+Architecture Express avec séparation en modules : routes, middleware, configuration base de données et scripts d'initialisation.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+    node distance=8mm and 16mm,
+    every node/.style={font=\small},
+    box/.style={draw, rounded corners, fill=gray!10, align=center, minimum width=5.0cm, minimum height=1.1cm}
+  ]
+    \node[box] (server) {server.js\\(Express app, middlewares)};
+    \node[box, below=of server] (routes) {routes/*\\(products, users, orders, admin)};
+    \node[box, below=of routes] (middleware) {middleware/auth.js\\(requireAuth, requireAdmin)};
+    \node[box, below=of middleware] (db) {config/db.js\\(SQLite, fichier .db)};
+    \draw[-{Latex}] (server) -- (routes);
+    \draw[-{Latex}] (routes) -- (middleware);
+    \draw[-{Latex}] (middleware) -- (db);
+  \end{tikzpicture}
+  \caption{Organisation simplifiée du backend}
+\end{figure}
+
+\section{Modèle de données}
+Le schéma comprend les tables \texttt{Users}, \texttt{Products}, \texttt{Orders}, \texttt{OrderItems}, avec des champs enrichis côté produits (marque, étiquettes, caractéristiques).
+
+% Accès aux données et sécurité
+\chapter{Accès aux données et sécurité}
+\section{Connexion SQLite}
+Connexion via \texttt{sqlite3} en mode fichier, initialisation par script dédié.
+
+\section{Authentification et autorisation}
+\begin{itemize}
+  \item JWT signé côté serveur (secret configurable via variable d'environnement).
+  \item Middleware \texttt{requireAuth} pour valider le token et charger l'utilisateur.
+  \item Middleware \texttt{requireAdmin} pour restreindre la gestion des produits.
+\end{itemize}
+
+% Présentation des endpoints
+\chapter{Endpoints de l'API}
+\section{Produits}
+\begin{itemize}
+  \item GET \texttt{/api/products} (filtres : \texttt{category}, \texttt{minPrice}, \texttt{maxPrice})
+  \item GET \texttt{/api/products/:id}
+  \item POST \texttt{/api/products} (auth + admin)
+  \item PUT \texttt{/api/products/:id} (auth + admin)
+  \item DELETE \texttt{/api/products/:id} (auth + admin)
+\end{itemize}
+
+\section{Utilisateurs}
+\begin{itemize}
+  \item POST \texttt{/api/users/signup}
+  \item POST \texttt{/api/users/login}
+\end{itemize}
+
+\section{Commandes et Admin}
+\begin{itemize}
+  \item POST \texttt{/api/orders}; GET \texttt{/api/orders/user/:user\_id}
+  \item GET \texttt{/api/admin/orders}; GET \texttt{/api/admin/orders/:order\_id/items}
+\end{itemize}
+
+% Implémentation (extraits)
+\chapter{Implémentation (extraits)}
+\section{Démarrage serveur}
+\begin{lstlisting}[style=code, language=JavaScript, caption={server.js : initialisation Express}]
+const express = require('express');
+const cors = require('cors');
+const app = express();
+const PORT = process.env.PORT || 5000;
+app.use(cors());
+app.use(express.json());
+// routes importées...
+app.listen(PORT, () => console.log(`API en écoute sur ${PORT}`));
+\end{lstlisting}
+
+\section{Middleware d'authentification}
+\begin{lstlisting}[style=code, language=JavaScript, caption={auth.js : vérification JWT}]
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = process.env.JWT_SECRET || 'ocp_secret';
+function requireAuth(req, res, next) {
+  const token = (req.headers['authorization'] || '').split(' ')[1];
+  if (!token) return res.status(401).json({ error: 'Token manquant' });
+  jwt.verify(token, JWT_SECRET, (err, decoded) => {
+    if (err) return res.status(403).json({ error: 'Token invalide' });
+    req.user = decoded; // ou chargement en base
+    next();
+  });
+}
+module.exports = { requireAuth };
+\end{lstlisting}
+
+% Qualité, tests et déploiement
+\chapter{Qualité, tests et déploiement}
+\section{Tests rapides}
+\begin{lstlisting}[style=code, language=bash, caption={Vérifications cURL}]
+curl http://localhost:5000/
+curl http://localhost:5000/api/products
+curl -X POST http://localhost:5000/api/users/signup \\
+  -H "Content-Type: application/json" \\
+  -d '{"name":"Test","email":"test@example.com","password":"pass1234"}'
+\end{lstlisting}
+
+\section{Industrialisation (pistes)}
+Scripts npm (start/dev), gestion de config par \texttt{dotenv}, ajout de tests (Jest/Supertest), CI minimale.
+
+% Gestion de projet
+\chapter{Gestion de projet et organisation}
+\section{Planning et jalons}
+Itérations courtes : mise en route serveur, endpoints produits, authentification, commandes, puis administration.
+
+\section{Risques et mitigations}
+Risque de dette technique (sécurité/validation) atténué par middleware, contrôles d'entrée et recommandations de durcissement.
+
+% Conclusion
+\chapter{Conclusion}
+Le projet a livré une API fonctionnelle et documentée, prête à être consommée par un frontend. Les perspectives incluent l'enrichissement des fonctionnalités, l'amélioration de la sécurité et l'automatisation du déploiement.
+
+% Annexes
+\appendix
+\chapter{Annexes}
+\section{Mise en place locale}
+\begin{lstlisting}[style=code, language=bash]
+cd backend
+npm ci
+node server.js
+\end{lstlisting}
+
+\section{Exemples de requêtes}
+\begin{lstlisting}[style=code, language=bash]
+curl "http://localhost:5000/api/products?category=Maison&minPrice=50&maxPrice=200"
+\end{lstlisting}
+
+\end{document}
+
